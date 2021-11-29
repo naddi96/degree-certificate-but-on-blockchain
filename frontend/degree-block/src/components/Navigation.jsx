@@ -21,7 +21,7 @@ function Navigation(props) {
   <Navbar.Collapse id="basic-navbar-nav">
   
     <Nav className="mr-auto">
-    <Link className="nav-link" to="/">
+    <Link className="nav-link" to="./cercaCertificato?certificato=sdfdsfdsf">
       Visualizza Certificato
       </Link>
     
