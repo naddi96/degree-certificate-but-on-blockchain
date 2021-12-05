@@ -25,11 +25,11 @@ function Navigation(props) {
       Visualizza Certificato
       </Link>
     
-      <Link className="nav-link" to="/">
+      <Link className="nav-link" to="./firmCertificato">
         Area Docente
       </Link>
     
-      <Link className="nav-link" to="/">
+      <Link className="nav-link" to="./creaCertificato">
         Area Amministratore
       </Link>
 

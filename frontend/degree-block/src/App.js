@@ -6,6 +6,7 @@ import Web3 from 'web3';
 import CercaCertificato from "./components/CercaCertificato";
 import CreateDegree from "./contracts/CreateDegree.json";
 import CreaCertificato  from "./components/CreaCertificato";
+import CaricaCertifcatiDaFirmare from "./components/CaricaCertifcatiDaFirmare";
 
 class App extends React.Component {
   constructor(props) {
@@ -152,6 +153,18 @@ class App extends React.Component {
                     <Navigation/>
                  
                   <CreaCertificato web3={this.state.web3} account={this.state.account} contract={this.state.contract} />   
+                  </div>
+                )}  />
+
+
+              <Route
+                path="/firmCertificato"
+                exact
+                component={() => (
+                  <div>
+                    <Navigation/>
+                 
+                  <CaricaCertifcatiDaFirmare web3={this.state.web3} account={this.state.account} contract={this.state.contract} />   
                   </div>
                 )}  />
 
