@@ -5,9 +5,11 @@ import DegreeBlock from "./contracts/DegreeBlock.json";
 import Web3 from 'web3';
 import CercaCertificato from "./components/CercaCertificato";
 import CreateDegree from "./contracts/CreateDegree.json";
-import CreaCertificato  from "./components/CreaCertificato";
-import CaricaCertifcatiDaFirmare from "./components/CaricaCertifcatiDaFirmare";
-
+import CreaCertificato  from "./components/CreaCertificato_Amministarore";
+import CaricaCertifcatiDaFirmare from "./components/CaricaCertifcatiDaFirmare_Docente";
+import Homepage from "./components/Homepage";
+import Navigation_Docente from "./components/Navigation_Docente";
+import Navigation_Amministratore from "./components/Navigation_Amministratore";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -127,7 +129,7 @@ class App extends React.Component {
                 exact
                 component={() => (
                   <div>
-                    <Navigation/>
+                    <Homepage/>
                   </div>
                 )}
               />
@@ -150,7 +152,7 @@ class App extends React.Component {
                 exact
                 component={() => (
                   <div>
-                    <Navigation/>
+                    <Navigation_Amministratore/>
                  
                   <CreaCertificato web3={this.state.web3} account={this.state.account} contract={this.state.contract} />   
                   </div>
@@ -162,7 +164,7 @@ class App extends React.Component {
                 exact
                 component={() => (
                   <div>
-                    <Navigation/>
+                    <Navigation_Docente/>
                  
                   <CaricaCertifcatiDaFirmare web3={this.state.web3} account={this.state.account} contract={this.state.contract} />   
                   </div>

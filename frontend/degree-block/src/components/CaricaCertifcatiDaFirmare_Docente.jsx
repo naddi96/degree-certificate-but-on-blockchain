@@ -21,7 +21,7 @@ const Modal = ({ handleClose, show, children }) => {
 
 
 
-class CaricaCertificatiDaFirmare extends React.Component{
+class CaricaCertificatiDaFirmare_Docente extends React.Component{
 
 
     constructor(props) {
@@ -147,4 +147,4 @@ class CaricaCertificatiDaFirmare extends React.Component{
 
 
 
-export default withRouter(CaricaCertificatiDaFirmare);
+export default withRouter(CaricaCertificatiDaFirmare_Docente);
