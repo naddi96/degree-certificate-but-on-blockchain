@@ -9,8 +9,22 @@ pragma solidity ^0.8.0;
 contract CreateDegree{
 
 	mapping (address => string) nome_cognome;
+	mapping (address => bool) is_istazied;
+
 	address cordinatoreCorso = 0xf472a171dc35fD30a2462dD5CDCF5F39b26dc390;
 	constructor()  {}
+
+	function is_valid_certificate( address  _address) public view returns (bool){
+		return is_istazied[_address];
+	}
+
+	function set_nome_cognome(string memory _nome_cognome) public{
+		nome_cognome[msg.sender] = _nome_cognome;
+	}
+
+	function get_nome_cognome(address _address) public view returns (string memory) {
+		return nome_cognome[_address];
+	}
 
 	event  certificato_creato(
 			DegreeBlock degree,
@@ -40,6 +54,7 @@ contract CreateDegree{
 		);
 
 		emit certificato_creato(degree, laurea,timestamp,commisione);
+		is_istazied[address(degree)]=true;
 		return address(degree);
 
 	}

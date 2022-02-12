@@ -37,16 +37,16 @@ render() {
     )}else{
         return(
             <div>
-            <p>prooova</p>
+           
             <input type="text" placeholder="Search.." name="search" 
         onChange={e => this.setState({ certificato_inserito: e.target.value })}/>
               
       
              <Link  to={"./cercaCertificato?certificato="+this.state.certificato_inserito}  >
                   <button onClick={e =>this.setState({certificato:this.state.certificato_inserito})} >cerca </button></Link>
-            <CaricaCertificato web3={this.props.web3} certificato={this.state.certificato} />
+            <CaricaCertificato web3={this.props.web3} certificato={this.state.certificato} contract={this.props.contract}/>
             
-            {this.state.certificato}
+           
             </div>
             
             
