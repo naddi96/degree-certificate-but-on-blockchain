@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "react-bootstrap";
 import { Link, withRouter } from "react-router-dom";
 import DegreeBlock from "../contracts/DegreeBlock.json";
 import CaricaCertificato from "./CaricaCertificato";
@@ -11,9 +10,11 @@ const Modal = ({ handleClose, show, children }) => {
         <div className={showHideClassName}>
             <section className="modal-main">
                 {children}
-                <button type="button" onClick={handleClose}>
+                <div class="text-center">
+                <button class="btn btn-danger" type="button" onClick={handleClose}>
                     Close
                 </button>
+                </div>
             </section>
         </div>
     );
@@ -21,7 +22,7 @@ const Modal = ({ handleClose, show, children }) => {
 
 
 
-class CaricaCertificatiDaFirmare_Docente extends React.Component {
+class CaricaCertificati extends React.Component {
 
 
     constructor(props) {
@@ -59,26 +60,43 @@ class CaricaCertificatiDaFirmare_Docente extends React.Component {
     async componentDidMount() {
         let contract = this.props.contract;
         this.setState({ abi: DegreeBlock.abi });
-        contract.events.certificato_creato({ fromBlock: 0 }, this.loadCertificatiDaFirmare);
+        contract.events.certificato_creato({ fromBlock: 0 }, this.loadCertificati);
 
 
     }
 
 
-    loadCertificatiDaFirmare = async (error, event) => {
+    loadCertificati = async (error, event) => {
         let cert_list = this.state.cert_list;
-
-
-
         let account = this.props.account;
 
-        if (event.returnValues.commisione.includes(account)) {
-            let contract = new this.props.web3.eth.Contract(this.state.abi, event.returnValues.degree)
-            let has_signed = await contract.methods.has_signed(account).call()
-            if (!has_signed) {
+        switch (this.props.load_case){
+            case "docente_firmati":
+                if (event.returnValues.commisione.includes(account)) {
+                    let contract = new this.props.web3.eth.Contract(this.state.abi, event.returnValues.degree)
+                    let has_signed = await contract.methods.has_signed(account).call()
+                    if (has_signed) {
+                        cert_list.push(event.returnValues);
+                    }
+                }
+                break;
+            case "docente_non_firmati":
+                if (event.returnValues.commisione.includes(account)) {
+                    let contract = new this.props.web3.eth.Contract(this.state.abi, event.returnValues.degree)
+                    let has_signed = await contract.methods.has_signed(account).call()
+                    if (!has_signed) {
+                        cert_list.push(event.returnValues);
+                    }
+                }
+                break;
+            case "docente_tutti":
+                if (event.returnValues.commisione.includes(account)) {
+                    cert_list.push(event.returnValues);
+                }
+                break
+            case "amministratore_tutti":
                 cert_list.push(event.returnValues);
-            }
-
+                break
         }
 
         //console.log(event.returnValues);
@@ -89,15 +107,45 @@ class CaricaCertificatiDaFirmare_Docente extends React.Component {
 
 
     render() {
+        let pulsante_firma=null
+        let pulsante_dettafli=null
+        let tipologia=null
+        switch (this.props.load_case){
+            case "docente_firmati":
+                pulsante_firma=""
+                pulsante_dettafli='Dettagli'
+                tipologia='Certificati firmati dal docente'
 
-        let popup = null;
+
+                break;
+            case "docente_non_firmati":
+                tipologia='Certificati da firmare del docente'
+                pulsante_firma=<button class="btn btn-primary"  onClick={() => this.firma(this.state.degree)}>Firma</button>
+                pulsante_dettafli='Firma'
+                break;
+            case "docente_tutti":
+                tipologia='Tutti i certificati del docente'
+                pulsante_firma=""
+                pulsante_dettafli='Dettagli'
+                break
+            case "amministratore_tutti":
+                tipologia='Tutti i certificati'
+
+                pulsante_firma=""
+                pulsante_dettafli='Dettagli'
+                break
+        }
+
+
+
         let pop = null
         if (this.state.showPopup) {
             console.log("popup");
             pop = (<div>
                 <CaricaCertificato web3={this.props.web3} certificato={this.state.degree} contract={this.props.contract} />
-
-                <Button onClick={() => this.firma(this.state.degree)}>Firma</Button>
+                <div class="text-center">
+                {pulsante_firma}
+                </div>
             </div>
 
             )
@@ -114,14 +162,14 @@ class CaricaCertificatiDaFirmare_Docente extends React.Component {
 
                     </Modal>
                 </div>
-                <h1>Certificati da firmare</h1>
+                <div class='certificatiContainer'>
+                <h1>{tipologia}</h1>
                 <table className="table table-striped">
                     <thead>
                         <tr>
                             <th>Riferimento certificato</th>
                             <th>Laurea</th>
-                            <th>Commissione</th>
-
+                            <th>{pulsante_dettafli}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -129,13 +177,12 @@ class CaricaCertificatiDaFirmare_Docente extends React.Component {
                             <tr key={index}>
                                 <td><Link to={"./cercaCertificato?certificato=" + cert.degree}>  {cert.degree}</Link> </td>
                                 <td>{cert.laurea}</td>
-                                <td>{cert.commisione}</td>
-
-                                <button onClick={() => this.openPopupHandler(cert.degree)}>Firma</button>
+                                <button class="btn btn-primary" onClick={() => this.openPopupHandler(cert.degree)}>{pulsante_dettafli}</button>                         
                             </tr>
                         ))}
                     </tbody>
                 </table>
+            </div>
             </div>
         );
 
@@ -149,4 +196,4 @@ class CaricaCertificatiDaFirmare_Docente extends React.Component {
 
 
 
-export default withRouter(CaricaCertificatiDaFirmare_Docente);
+export default withRouter(CaricaCertificati);

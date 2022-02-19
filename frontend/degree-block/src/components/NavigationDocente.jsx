@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import { Button, Nav } from 'react-bootstrap';
+import {  Nav } from 'react-bootstrap';
 import Navbar from 'react-bootstrap/Navbar';
-
+import logo from './images/logo.png';
 
 const Modal = ({ handleClose, show, children }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
@@ -11,16 +11,18 @@ const Modal = ({ handleClose, show, children }) => {
     <div className={showHideClassName}>
       <section className="modal-main">
         {children}
-        <button type="button" onClick={handleClose}>
-          Close
-        </button>
+        <div class="text-right">
+                <button class="btn btn-danger" type="button" onClick={handleClose}>
+                    Close
+                </button>
+                </div>
       </section>
     </div>
   );
 };
 
 
-class Navigation_Docente extends React.Component {
+class NavigationDocente extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -54,9 +56,10 @@ class Navigation_Docente extends React.Component {
     let pop = ""
     if (this.state.showPopup) {
       console.log("popup");
-      pop = (<div>
-        <input type="text" className="form-control" placeholder="Inserire il tuo nome e cognome" value={this.state.nome_cognome} onChange={(e) => this.setState({ nome_cognome: e.target.value })} />
-        <Button variant="primary" onClick={() => this.set_nome_cognome(this.state.nome_cognome)}>Invio</Button>
+      pop = (
+          <div class="input-group mb-3">
+        <input type="text" className="form-control" placeholder="Inserire nome e cognome" value={this.state.nome_cognome} onChange={(e) => this.setState({ nome_cognome: e.target.value })} />
+        <button class="btn btn-primary"  onClick={() => this.set_nome_cognome(this.state.nome_cognome)}>Invio</button>
       </div>
 
       )
@@ -76,7 +79,7 @@ class Navigation_Docente extends React.Component {
 
 
           <Link className="navbar-brand" to="/">
-            <span> <img width="30" height="30" alt="" /></span>
+            <span> <img src={logo} width="30" height="30" alt="" /></span>
             <span> Certificati Laura</span>
 
           </Link>
@@ -88,11 +91,11 @@ class Navigation_Docente extends React.Component {
 
             <Nav className="mr-auto">
 
-              <Link className="nav-link" to="./firmCertificato">
+              <Link className="nav-link" to="./certificatiDaFirmareDocente">
                 Firma Certificati
               </Link>
 
-              <Link className="nav-link" to="./firmCertificato">
+              <Link className="nav-link" to="./caricaCertifcatiDocente">
                 Visualizza tutti i cartificati
               </Link>
 
@@ -114,4 +117,4 @@ class Navigation_Docente extends React.Component {
     );
   }
 }
-export default withRouter(Navigation_Docente);
+export default withRouter(NavigationDocente);

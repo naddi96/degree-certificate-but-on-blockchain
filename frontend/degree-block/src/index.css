@@ -15,6 +15,8 @@
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
+    padding: 10px 10px 10px 10px;
+ 
   }
   
   .display-block {
@@ -24,4 +26,24 @@
   .display-none {
     display: none;
   }
+
+.certificatiContainer{
+  margin-top: 10px ;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.container{
+  margin-top: 10px;
+  margin-bottom: 20px;
   
+
+}
+
+
+.wrapper {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+

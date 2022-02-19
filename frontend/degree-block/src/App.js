@@ -1,17 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navigation from "./components/Navigation";
-import DegreeBlock from "./contracts/DegreeBlock.json";
+//import DegreeBlock from "./contracts/DegreeBlock.json";
 import Web3 from 'web3';
 import CercaCertificato from "./components/CercaCertificato";
 import CreateDegree from "./contracts/CreateDegree.json";
-import CreaCertificato from "./components/CreaCertificato_Amministarore";
-import CaricaCertifcatiDaFirmare from "./components/CaricaCertifcatiDaFirmare_Docente";
+import CreaCertificato from "./components/CreaCertificatoAmministarore";
 import Homepage from "./components/Homepage";
-import Navigation_Docente from "./components/Navigation_Docente";
-import Navigation_Amministratore from "./components/Navigation_Amministratore";
-import CaricaCertifcatiFirmati_Docente from "./components/CaricaCertifcatiFirmati_Docente";
-import CaricaCertifcati_Docente from "./components/CaricaCertifcati_Docente";
+import NavigationDocente from "./components/NavigationDocente";
+import NavigationAmministratore from "./components/NavigationAmministratore";
+
+import CaricaCertificati from "./components/CaricaCertificati";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -156,7 +156,7 @@ class App extends React.Component {
                 exact
                 component={() => (
                   <div>
-                    <Navigation_Amministratore />
+                    <NavigationAmministratore />
 
                     <CreaCertificato web3={this.state.web3} account={this.state.account} contract={this.state.contract} />
                   </div>
@@ -164,13 +164,13 @@ class App extends React.Component {
 
 
               <Route
-                path="/firmCertificato"
+                path="/certificatiDaFirmareDocente"
                 exact
                 component={() => (
                   <div>
-                    <Navigation_Docente contract={this.state.contract} account={this.state.account} />
+                    <NavigationDocente contract={this.state.contract} account={this.state.account} />
 
-                    <CaricaCertifcatiDaFirmare web3={this.state.web3} account={this.state.account} contract={this.state.contract} />
+                    <CaricaCertificati load_case={'docente_non_firmati'} web3={this.state.web3} account={this.state.account} contract={this.state.contract} />
 
                   </div>
                 )} />
@@ -182,9 +182,9 @@ class App extends React.Component {
                 exact
                 component={() => (
                   <div>
-                    <Navigation_Docente contract={this.state.contract} account={this.state.account} />
+                    <NavigationDocente contract={this.state.contract} account={this.state.account} />
 
-                    <CaricaCertifcatiFirmati_Docente web3={this.state.web3} account={this.state.account} contract={this.state.contract} />
+                    <CaricaCertificati load_case={'docente_firmati'} web3={this.state.web3} account={this.state.account} contract={this.state.contract} />
 
                   </div>
                 )} />
@@ -194,14 +194,23 @@ class App extends React.Component {
                 exact
                 component={() => (
                   <div>
-                    <Navigation_Docente contract={this.state.contract} account={this.state.account} />
-                    <CaricaCertifcati_Docente web3={this.state.web3} account={this.state.account} contract={this.state.contract} />
+                     <NavigationDocente contract={this.state.contract} account={this.state.account} />
+                    <CaricaCertificati load_case={'docente_tutti'} web3={this.state.web3} account={this.state.account} contract={this.state.contract} />
 
                   </div>
                 )} />
 
 
+              <Route
+                path="/visualizzaCertificati"
+                exact
+                component={() => (
+                  <div>
+                    <NavigationAmministratore/>
+                    <CaricaCertificati load_case={'amministratore_tutti'} web3={this.state.web3} account={this.state.account} contract={this.state.contract} />
 
+                  </div>
+                )} />
 
 
             </Switch>

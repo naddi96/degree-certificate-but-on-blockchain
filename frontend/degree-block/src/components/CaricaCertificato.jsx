@@ -57,7 +57,7 @@ class CaricaCertificato extends React.Component{
 
         let is_valid = await this.props.contract.methods.is_valid_certificate(this.state.certificato).call()
         if (!is_valid){
-            throw "Certificato non valido"
+            throw new Error("Certificato non valido")
         }
 
         let contract= new web3.eth.Contract(abi2,this.state.certificato)  
@@ -69,7 +69,7 @@ class CaricaCertificato extends React.Component{
         for (let i=0;i<commisione.length;i++){
             let nome_cognome = await this.props.contract.methods.get_nome_cognome(commisione[i]).call()
             x = await contract.methods.has_signed(commisione[i]).call();
-            if (nome_cognome==""){
+            if (nome_cognome===""){
                 nome_cognome="non impostato"
             }
             dict_commissione[commisione[i]]={signed:x,nome_cognome:nome_cognome}
@@ -91,7 +91,7 @@ class CaricaCertificato extends React.Component{
         let laurea = this.state.certificato_scaricato.laurea
         let nomeRealatore = this.state.certificato_scaricato.nomeRealatore
         let nomeLaureando= this.state.certificato_scaricato.nomeLaureando
-        let commisione= this.state.certificato_scaricato.commisione
+        //let commisione= this.state.certificato_scaricato.commisione
         let codiceFiscaleLaureando=this.state.certificato_scaricato.codiceFiscaleLaureando
         
         

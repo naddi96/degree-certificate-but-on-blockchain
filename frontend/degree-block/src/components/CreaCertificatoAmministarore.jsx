@@ -1,8 +1,6 @@
 //form react component
 
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import CreateDegree from "../contracts/CreateDegree.json";
 
 class CreaCertificato extends React.Component{
     constructor(props){
@@ -124,7 +122,7 @@ class CreaCertificato extends React.Component{
                                                         app[index] = e.target.value
                                                         this.setState({commissione: app})}
                                                         }/>
-                                                        <button onClick={e =>{
+                                                        <button style={{marginTop:"5px"}} type="button" class="btn btn-danger" onClick={e =>{
                                                             let app=this.state.commissione
                                                             app.splice(index, 1);
                                                             this.setState({commissione: app})
@@ -135,7 +133,7 @@ class CreaCertificato extends React.Component{
                                         })}
                                         
                                         
-                                        <button onClick={e =>{
+                                        <button type="button" class="btn btn-primary" onClick={e =>{
                                             let app=this.state.commissione
                                             app.push("")
                                             this.setState({commissione: app})
@@ -145,9 +143,11 @@ class CreaCertificato extends React.Component{
                                     
                                    
 
-                               </div></div></div></div>
-                               
-                               <button onClick={e =>{this.creaCert()}}>invia</button>
+                               </div></div></div>
+                               </div>
+                               <div class='text-center'>
+                               <button style={{width:"50%"}} type="button" class="btn btn-success btn-lg" onClick={e =>{this.creaCert()}}> invia</button>
+                               </div>
                                
                                </div>
 
