@@ -225,7 +225,7 @@ class App extends React.Component {
         </div>
         <h2>Ops!! Sembra che tu non abbia un wallet</h2>
         <p>Installa un wallet come Metamask e <b>Ricordati di collegare il tuo account al sito!!</b></p>
-        <a href="/">Try again :)</a>
+        <a href="./">Try again :)</a>
         </div>
         </div>
 
