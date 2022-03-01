@@ -1,4 +1,0 @@
-let instance = await CreateDegree.deployed()
-let con = await instance.crea_certificato_di_laurea("provaaa","pippo bauso","asdsad","dsfsdf",["0xBBEd432CE0B3E60aaff7C96799C64e0CA297ff3a"])
-let con = await instance.crea_certificato_di_laurea("provaaaaaa","psasippo bauso","asdsad","dsfsdf",["0xBBEd432CE0B3E60aaff7C96799C64e0CA297ff3a","0x539b3c0E322CD9Dcbd8Af99ccd42f2E928255C6a","0x9921fCC51EC3EC283Add11F59E258C2E6601b170"])
-prova = await DegreeBlock.at("0x2ccdcf9ac7e34e9cd2a5ce80e26f8a0f66b4303f")
