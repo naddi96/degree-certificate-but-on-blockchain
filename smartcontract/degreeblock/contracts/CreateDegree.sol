@@ -14,6 +14,12 @@ contract CreateDegree{
 	address cordinatoreCorso = 0xf472a171dc35fD30a2462dD5CDCF5F39b26dc390;
 	constructor()  {}
 
+	function change_cordinatoreCorso(address new_cordinatore) public {
+		require(new_cordinatore != 0x0000000000000000000000000000000000000000 
+				&& msg.sender == cordinatoreCorso);
+		cordinatoreCorso = new_cordinatore;
+	}
+
 	function is_valid_certificate( address  _address) public view returns (bool){
 		return is_istazied[_address];
 	}
