@@ -11,8 +11,8 @@ const Modal = ({ handleClose, show, children }) => {
     <div className={showHideClassName}>
       <section className="modal-main">
         {children}
-        <div class="text-right">
-                <button class="btn btn-danger" type="button" onClick={handleClose}>
+        <div className="text-right">
+                <button className="btn btn-danger" type="button" onClick={handleClose}>
                     Close
                 </button>
                 </div>
@@ -52,14 +52,14 @@ class NavigationDocente extends React.Component {
 
 
   render() {
-    console.log(this.props.contract)
+    //console.log(this.props.contract)
     let pop = ""
     if (this.state.showPopup) {
-      console.log("popup");
+      //console.log("popup");
       pop = (
-          <div class="input-group mb-3">
+          <div className="input-group mb-3">
         <input type="text" className="form-control" placeholder="Inserire nome e cognome" value={this.state.nome_cognome} onChange={(e) => this.setState({ nome_cognome: e.target.value })} />
-        <button class="btn btn-primary"  onClick={() => this.set_nome_cognome(this.state.nome_cognome)}>Invio</button>
+        <button className="btn btn-primary"  onClick={() => this.set_nome_cognome(this.state.nome_cognome)}>Invio</button>
       </div>
 
       )

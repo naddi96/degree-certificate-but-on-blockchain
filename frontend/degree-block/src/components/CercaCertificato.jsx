@@ -24,28 +24,28 @@ class CercaCertificato extends React.Component{
 
 
 render() {
-    console.log(this.state.certificato)
+    //console.log(this.state.certificato)
     if (this.state.certificato==="" || this.state.certificato === null){
     return(
-        <div class="wrapper">
+        <div className="wrapper">
         
-        <div class="input-group mb-3">
+        <div className="input-group mb-3">
         
-        <input type="text" class="form-control" aria-label="Inserisci l'id del certificato" aria-describedby="basic-addon2"  placeholder="Inserisci l'id del certificato" name="search" 
+        <input type="text" className="form-control" aria-label="Inserisci l'id del certificato" aria-describedby="basic-addon2"  placeholder="Inserisci l'id del certificato" name="search" 
         onChange={e => this.setState({ certificato_inserito: e.target.value })}/>
-        <button class="btn btn-outline-secondary" type="button" onClick={e => this.setState({certificato:this.state.certificato_inserito})} >Cerca</button>
+        <button className="btn btn-outline-secondary" type="button" onClick={e => this.setState({certificato:this.state.certificato_inserito})} >Cerca</button>
         {this.state.certificato}
         </div></div>
     )}else{
         return(
 
-            <div class="wrapper">
+            <div className="wrapper">
         
-        <div class="input-group mb-3">
+        <div className="input-group mb-3">
         
-        <input type="text" class="form-control" aria-label="Inserisci l'id del certificato" aria-describedby="basic-addon2"  placeholder="Inserisci l'id del certificato" name="search" 
+        <input type="text" className="form-control" aria-label="Inserisci l'id del certificato" aria-describedby="basic-addon2"  placeholder="Inserisci l'id del certificato" name="search" 
         onChange={e => this.setState({ certificato_inserito: e.target.value })}/>
-        <button class="btn btn-outline-secondary" type="button" onClick={e => this.setState({certificato:this.state.certificato_inserito})} >Cerca</button>
+        <button className="btn btn-outline-secondary" type="button" onClick={e => this.setState({certificato:this.state.certificato_inserito})} >Cerca</button>
            
            <CaricaCertificato web3={this.props.web3} certificato={this.state.certificato} contract={this.props.contract}/>
             

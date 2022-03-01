@@ -12,6 +12,7 @@ contract CreateDegree{
 	mapping (address => bool) is_istazied;
 
 	address cordinatoreCorso = 0xf472a171dc35fD30a2462dD5CDCF5F39b26dc390;
+	
 	constructor()  {}
 
 	function change_cordinatoreCorso(address new_cordinatore) public {

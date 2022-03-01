@@ -10,8 +10,8 @@ const Modal = ({ handleClose, show, children }) => {
         <div className={showHideClassName}>
             <section className="modal-main">
                 {children}
-                <div class="text-center">
-                <button class="btn btn-danger" type="button" onClick={handleClose}>
+                <div className="text-center">
+                <button className="btn btn-danger" type="button" onClick={handleClose}>
                     Close
                 </button>
                 </div>
@@ -48,7 +48,7 @@ class CaricaCertificati extends React.Component {
     }
 
     firma = async (contratto) => {
-        console.log(contratto)
+        //console.log(contratto)
         let contract = new this.props.web3.eth.Contract(this.state.abi, contratto)
         contract.methods.sign().send({ from: this.props.account })
             .on("receipt", (receipt) => { alert("transazione ricevuta"); })
@@ -97,6 +97,8 @@ class CaricaCertificati extends React.Component {
             case "amministratore_tutti":
                 cert_list.push(event.returnValues);
                 break
+            
+            default:
         }
 
         //console.log(event.returnValues);
@@ -120,7 +122,7 @@ class CaricaCertificati extends React.Component {
                 break;
             case "docente_non_firmati":
                 tipologia='Certificati da firmare del docente'
-                pulsante_firma=<button class="btn btn-primary"  onClick={() => this.firma(this.state.degree)}>Firma</button>
+                pulsante_firma=<button className="btn btn-primary"  onClick={() => this.firma(this.state.degree)}>Firma</button>
                 pulsante_dettafli='Firma'
                 break;
             case "docente_tutti":
@@ -134,16 +136,17 @@ class CaricaCertificati extends React.Component {
                 pulsante_firma=""
                 pulsante_dettafli='Dettagli'
                 break
+            default:
         }
 
 
 
         let pop = null
         if (this.state.showPopup) {
-            console.log("popup");
+            //console.log("popup");
             pop = (<div>
                 <CaricaCertificato web3={this.props.web3} certificato={this.state.degree} contract={this.props.contract} />
-                <div class="text-center">
+                <div className="text-center">
                 {pulsante_firma}
                 </div>
             </div>
@@ -162,7 +165,7 @@ class CaricaCertificati extends React.Component {
 
                     </Modal>
                 </div>
-                <div class='certificatiContainer'>
+                <div className='certificatiContainer'>
                 <h1>{tipologia}</h1>
                 <table className="table table-striped">
                     <thead>
@@ -177,7 +180,7 @@ class CaricaCertificati extends React.Component {
                             <tr key={index}>
                                 <td><Link to={"./cercaCertificato?certificato=" + cert.degree}>  {cert.degree}</Link> </td>
                                 <td>{cert.laurea}</td>
-                                <button class="btn btn-primary" onClick={() => this.openPopupHandler(cert.degree)}>{pulsante_dettafli}</button>                         
+                                <button className="btn btn-primary" onClick={() => this.openPopupHandler(cert.degree)}>{pulsante_dettafli}</button>                         
                             </tr>
                         ))}
                     </tbody>

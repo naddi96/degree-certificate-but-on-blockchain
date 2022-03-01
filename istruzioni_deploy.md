@@ -13,10 +13,27 @@ Eseguire il comando `npm install` per installare tutte le dipendenze
 
 1. Aprire il file `truffle-config.js` 
 2. modificare la variabile MNEMONIC con il propria chiave privata
-3. modificare la variabile ETH_NODE con il propio nodo Ethereum (nel mio caso userò i nodi Ethereum messi a disposizione da  [infura](https://infura.io/) )
+3. modificare la variabile ETH_NODE con il proprio nodo Ethereum (nel mio caso userò i nodi Ethereum messi a disposizione da  [infura](https://infura.io/) )
 
 ### Deploy del contratto  
 
 1. eseguire il comando `truffle deploy --network ropsten`
 2. copiare l'interfaccia del contratto nel frontend `cp cp -r ./build/contracs/  ../../frontend/degree-block/src/`
+
+
+## Istruzioni per il deploy frontend
+
+### installazione delle dipendenze
+
+Per prima cosa posizionarsi nella cartella  `cd ./frontend/degree-block`
+
+Eseguire il comando `npm install` per installare tutte le dipendenze
+
+### Deploy frontend
+
+1. eseguire il comando `npm run build`
+2. copiare la cartella `./build/static` nel proprio webserver (es. Apache,NGNX)
+
+
+
 

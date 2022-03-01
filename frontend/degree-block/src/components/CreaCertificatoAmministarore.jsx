@@ -62,12 +62,7 @@ class CreaCertificato extends React.Component{
         
         
         let contract = this.props.contract;
-        console.log( this.props.account)
-        console.log (                                this.state.laurea,
-            this.state.nome,
-            this.state.codicefiscale,
-            this.state.relatore, 
-            this.state.commissione)
+        //console.log( this.props.account)
         
         contract.methods.crea_certificato_di_laurea(
                                 this.state.laurea,
@@ -122,7 +117,7 @@ class CreaCertificato extends React.Component{
                                                         app[index] = e.target.value
                                                         this.setState({commissione: app})}
                                                         }/>
-                                                        <button style={{marginTop:"5px"}} type="button" class="btn btn-danger" onClick={e =>{
+                                                        <button style={{marginTop:"5px"}} type="button" className="btn btn-danger" onClick={e =>{
                                                             let app=this.state.commissione
                                                             app.splice(index, 1);
                                                             this.setState({commissione: app})
@@ -133,7 +128,7 @@ class CreaCertificato extends React.Component{
                                         })}
                                         
                                         
-                                        <button type="button" class="btn btn-primary" onClick={e =>{
+                                        <button type="button" className="btn btn-primary" onClick={e =>{
                                             let app=this.state.commissione
                                             app.push("")
                                             this.setState({commissione: app})
@@ -145,8 +140,8 @@ class CreaCertificato extends React.Component{
 
                                </div></div></div>
                                </div>
-                               <div class='text-center'>
-                               <button style={{width:"50%"}} type="button" class="btn btn-success btn-lg" onClick={e =>{this.creaCert()}}> invia</button>
+                               <div className='text-center'>
+                               <button style={{width:"50%"}} type="button" className="btn btn-success btn-lg" onClick={e =>{this.creaCert()}}> invia</button>
                                </div>
                                
                                </div>
