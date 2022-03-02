@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/degree-certificate-but-on-blockchain/static/css/main.998b1a59.chunk.css",
-    "main.js": "/degree-certificate-but-on-blockchain/static/js/main.82edab73.chunk.js",
-    "main.js.map": "/degree-certificate-but-on-blockchain/static/js/main.82edab73.chunk.js.map",
+    "main.js": "/degree-certificate-but-on-blockchain/static/js/main.b861a6ff.chunk.js",
+    "main.js.map": "/degree-certificate-but-on-blockchain/static/js/main.b861a6ff.chunk.js.map",
     "runtime-main.js": "/degree-certificate-but-on-blockchain/static/js/runtime-main.313b0025.js",
     "runtime-main.js.map": "/degree-certificate-but-on-blockchain/static/js/runtime-main.313b0025.js.map",
-    "static/js/2.cba4a7de.chunk.js": "/degree-certificate-but-on-blockchain/static/js/2.cba4a7de.chunk.js",
-    "static/js/2.cba4a7de.chunk.js.map": "/degree-certificate-but-on-blockchain/static/js/2.cba4a7de.chunk.js.map",
+    "static/js/2.95061540.chunk.js": "/degree-certificate-but-on-blockchain/static/js/2.95061540.chunk.js",
+    "static/js/2.95061540.chunk.js.map": "/degree-certificate-but-on-blockchain/static/js/2.95061540.chunk.js.map",
     "index.html": "/degree-certificate-but-on-blockchain/index.html",
-    "precache-manifest.b240c6079259fbc3d10c681f947f5283.js": "/degree-certificate-but-on-blockchain/precache-manifest.b240c6079259fbc3d10c681f947f5283.js",
+    "precache-manifest.ebe86e1b9b62aba5799876bad269acd9.js": "/degree-certificate-but-on-blockchain/precache-manifest.ebe86e1b9b62aba5799876bad269acd9.js",
     "service-worker.js": "/degree-certificate-but-on-blockchain/service-worker.js",
     "static/css/main.998b1a59.chunk.css.map": "/degree-certificate-but-on-blockchain/static/css/main.998b1a59.chunk.css.map",
-    "static/js/2.cba4a7de.chunk.js.LICENSE.txt": "/degree-certificate-but-on-blockchain/static/js/2.cba4a7de.chunk.js.LICENSE.txt",
+    "static/js/2.95061540.chunk.js.LICENSE.txt": "/degree-certificate-but-on-blockchain/static/js/2.95061540.chunk.js.LICENSE.txt",
     "static/media/create.png": "/degree-certificate-but-on-blockchain/static/media/create.69ff0c0c.png",
     "static/media/logo.png": "/degree-certificate-but-on-blockchain/static/media/logo.a7ac5426.png",
     "static/media/search.jpg": "/degree-certificate-but-on-blockchain/static/media/search.a5b7addc.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.313b0025.js",
-    "static/js/2.cba4a7de.chunk.js",
+    "static/js/2.95061540.chunk.js",
     "static/css/main.998b1a59.chunk.css",
-    "static/js/main.82edab73.chunk.js"
+    "static/js/main.b861a6ff.chunk.js"
   ]
 }
