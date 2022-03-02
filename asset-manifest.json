@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/degree-certificate-but-on-blockchain/static/css/main.998b1a59.chunk.css",
-    "main.js": "/degree-certificate-but-on-blockchain/static/js/main.60778122.chunk.js",
-    "main.js.map": "/degree-certificate-but-on-blockchain/static/js/main.60778122.chunk.js.map",
+    "main.js": "/degree-certificate-but-on-blockchain/static/js/main.46a8145a.chunk.js",
+    "main.js.map": "/degree-certificate-but-on-blockchain/static/js/main.46a8145a.chunk.js.map",
     "runtime-main.js": "/degree-certificate-but-on-blockchain/static/js/runtime-main.313b0025.js",
     "runtime-main.js.map": "/degree-certificate-but-on-blockchain/static/js/runtime-main.313b0025.js.map",
     "static/js/2.cba4a7de.chunk.js": "/degree-certificate-but-on-blockchain/static/js/2.cba4a7de.chunk.js",
     "static/js/2.cba4a7de.chunk.js.map": "/degree-certificate-but-on-blockchain/static/js/2.cba4a7de.chunk.js.map",
     "index.html": "/degree-certificate-but-on-blockchain/index.html",
-    "precache-manifest.cf0bd130bb194457de81dced226ae5b8.js": "/degree-certificate-but-on-blockchain/precache-manifest.cf0bd130bb194457de81dced226ae5b8.js",
+    "precache-manifest.752880be824e0e5869a4a5038aef4fc4.js": "/degree-certificate-but-on-blockchain/precache-manifest.752880be824e0e5869a4a5038aef4fc4.js",
     "service-worker.js": "/degree-certificate-but-on-blockchain/service-worker.js",
     "static/css/main.998b1a59.chunk.css.map": "/degree-certificate-but-on-blockchain/static/css/main.998b1a59.chunk.css.map",
     "static/js/2.cba4a7de.chunk.js.LICENSE.txt": "/degree-certificate-but-on-blockchain/static/js/2.cba4a7de.chunk.js.LICENSE.txt",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.313b0025.js",
     "static/js/2.cba4a7de.chunk.js",
     "static/css/main.998b1a59.chunk.css",
-    "static/js/main.60778122.chunk.js"
+    "static/js/main.46a8145a.chunk.js"
   ]
 }
