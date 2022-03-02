@@ -3,7 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import {  Nav } from 'react-bootstrap';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from './images/logo.png';
-
+import config from "../config";
 const Modal = ({ handleClose, show, children }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
@@ -78,7 +78,7 @@ class NavigationDocente extends React.Component {
         <Navbar bg="navbar navbar-dark bg-dark" expand="lg">
 
 
-          <Link className="navbar-brand" to="/">
+          <Link className="navbar-brand" to={config.base_path}>
             <span> <img src={logo} width="30" height="30" alt="" /></span>
             <span> Certificati Laura</span>
 
@@ -91,15 +91,15 @@ class NavigationDocente extends React.Component {
 
             <Nav className="mr-auto">
 
-              <Link className="nav-link" to="./certificatiDaFirmareDocente">
+              <Link className="nav-link" to={config.base_path+"certificatiDaFirmareDocente"}>
                 Firma Certificati
               </Link>
 
-              <Link className="nav-link" to="./caricaCertifcatiDocente">
+              <Link className="nav-link" to={config.base_path+"caricaCertifcatiDocente"}>
                 Visualizza tutti i cartificati
               </Link>
 
-              <Link className="nav-link" to="./certificatiFirmatiDocente">
+              <Link className="nav-link" to={config.base_path+"certificatiFirmatiDocente"}>
                 Visualizza tutti i cartificati firmati
               </Link>
 

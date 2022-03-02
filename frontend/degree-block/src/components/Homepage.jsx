@@ -5,7 +5,7 @@ import "./styleHome.css";
 import sign from "./images/sign.png";
 import createIcon from "./images/create.png";
 import search from "./images/search.jpg";
-
+import config from "../config";
 
 
 class Homepage extends React.Component{
@@ -26,7 +26,7 @@ render(){
             </div>
             <div className="row">
                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-               <Link to="/cercaCertificato">
+               <Link to={config.base_path+"cercaCertificato"}>
                   <div className="Services-box">
                      <i><img src={search} alt="#" /></i>
                      <h3> Cerca Cartificato</h3>
@@ -35,7 +35,7 @@ render(){
                </Link>
                </div>
                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                  <Link to="/certificatiDaFirmareDocente">
+                  <Link to={config.base_path+"certificatiDaFirmareDocente"}>
                   <div className="Services-box">
                      <i><img src={sign} alt="#" /></i>
                      <h3>Area Docente</h3>
@@ -44,7 +44,7 @@ render(){
                   </Link>
                </div>
                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-               <Link to="/creaCertificato">
+               <Link to={config.base_path+"creaCertificato"}>
                   <div className="Services-box">
                      <i><img src={createIcon} alt="#" /></i>
                      <h3>Area Amministratore</h3>

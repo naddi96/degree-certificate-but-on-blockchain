@@ -2,7 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import DegreeBlock from "../contracts/DegreeBlock.json";
 import CaricaCertificato from "./CaricaCertificato";
-
+import config from "../config";
 const Modal = ({ handleClose, show, children }) => {
     const showHideClassName = show ? "modal display-block" : "modal display-none";
 
@@ -178,7 +178,7 @@ class CaricaCertificati extends React.Component {
                     <tbody>
                         {this.state.cert_list.map((cert, index) => (
                             <tr key={index}>
-                                <td><Link to={"./cercaCertificato?certificato=" + cert.degree}>  {cert.degree}</Link> </td>
+                                <td><Link to={config.base_path+"cercaCertificato?certificato=" + cert.degree}>  {cert.degree}</Link> </td>
                                 <td>{cert.laurea}</td>
                                 <button className="btn btn-primary" onClick={() => this.openPopupHandler(cert.degree)}>{pulsante_dettafli}</button>                         
                             </tr>

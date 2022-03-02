@@ -11,6 +11,8 @@ import NavigationDocente from "./components/NavigationDocente";
 import NavigationAmministratore from "./components/NavigationAmministratore";
 
 import CaricaCertificati from "./components/CaricaCertificati";
+import config from "./config";
+
 
 class App extends React.Component {
   constructor(props) {
@@ -129,7 +131,7 @@ class App extends React.Component {
               {// <Route path="/" exact component={() => <Homepage />} />
               }
               <Route
-                path="/"
+                path= {config.base_path}
                 exact
                 component={() => (
                   <div>
@@ -139,7 +141,7 @@ class App extends React.Component {
               />
 
               <Route
-                path="/cercaCertificato"
+                path= {config.base_path+"cercaCertificato"}
                 exact
                 component={() => (
                   <div>
@@ -152,7 +154,7 @@ class App extends React.Component {
 
 
               <Route
-                path="/creaCertificato"
+                path={config.base_path+"creaCertificato"}
                 exact
                 component={() => (
                   <div>
@@ -164,7 +166,7 @@ class App extends React.Component {
 
 
               <Route
-                path="/certificatiDaFirmareDocente"
+                path={config.base_path+"certificatiDaFirmareDocente"}
                 exact
                 component={() => (
                   <div>
@@ -178,7 +180,7 @@ class App extends React.Component {
 
 
               <Route
-                path="/certificatiFirmatiDocente"
+                path={config.base_path+"certificatiFirmatiDocente"}
                 exact
                 component={() => (
                   <div>
@@ -190,7 +192,7 @@ class App extends React.Component {
                 )} />
 
               <Route
-                path="/caricaCertifcatiDocente"
+                path={config.base_path+"caricaCertifcatiDocente"}
                 exact
                 component={() => (
                   <div>
@@ -202,7 +204,7 @@ class App extends React.Component {
 
 
               <Route
-                path="/visualizzaCertificati"
+                path={config.base_path+"visualizzaCertificati"}
                 exact
                 component={() => (
                   <div>

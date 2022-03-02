@@ -1,5 +1,3 @@
 {
-
-    "api_endpoint":"http://localhost/"
-
+    "base_path": "/degree-certificate-but-on-blockchain/"
 }
