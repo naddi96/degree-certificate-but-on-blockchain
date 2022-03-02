@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "79683bae608b877343c130bc027475b4",
+    "revision": "d8e1cf45fbd41ca5fa56a6d66f3d7e1c",
     "url": "/degree-certificate-but-on-blockchain/index.html"
   },
   {
-    "revision": "ce904895d57c37f93360",
+    "revision": "d9c50a26e28c3866f925",
     "url": "/degree-certificate-but-on-blockchain/static/css/main.998b1a59.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/degree-certificate-but-on-blockchain/static/js/2.cba4a7de.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ce904895d57c37f93360",
-    "url": "/degree-certificate-but-on-blockchain/static/js/main.46a8145a.chunk.js"
+    "revision": "d9c50a26e28c3866f925",
+    "url": "/degree-certificate-but-on-blockchain/static/js/main.82edab73.chunk.js"
   },
   {
     "revision": "fb4e6479fc0930f2b322",
