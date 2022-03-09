@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/degree-certificate-but-on-blockchain/precache-manifest.ebe86e1b9b62aba5799876bad269acd9.js"
+  "/degree-certificate-but-on-blockchain/precache-manifest.f7e17dac91410ff226cae06a846e6f9a.js"
 );
 
 self.addEventListener('message', (event) => {
