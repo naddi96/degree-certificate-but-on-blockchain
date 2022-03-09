@@ -158,7 +158,7 @@ class App extends React.Component {
                 exact
                 component={() => (
                   <div>
-                    <NavigationAmministratore />
+                    <NavigationAmministratore contract={this.state.contract} account={this.state.account} />
 
                     <CreaCertificato web3={this.state.web3} account={this.state.account} contract={this.state.contract} />
                   </div>

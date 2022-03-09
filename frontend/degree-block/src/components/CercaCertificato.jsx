@@ -38,7 +38,7 @@ render() {
         </div></div>
     )}else{
         return(
-
+            <>
             <div className="wrapper">
         
         <div className="input-group mb-3">
@@ -46,12 +46,17 @@ render() {
         <input type="text" className="form-control" aria-label="Inserisci l'id del certificato" aria-describedby="basic-addon2"  placeholder="Inserisci l'id del certificato" name="search" 
         onChange={e => this.setState({ certificato_inserito: e.target.value })}/>
         <button className="btn btn-outline-secondary" type="button" onClick={e => this.setState({certificato:this.state.certificato_inserito})} >Cerca</button>
+           <br></br>
+
            
-           <CaricaCertificato web3={this.props.web3} certificato={this.state.certificato} contract={this.props.contract}/>
             
            
-            </div></div>
+            </div>
             
+            <CaricaCertificato web3={this.props.web3} certificato={this.state.certificato} contract={this.props.contract}/>
+            </div>
+            
+            </>
             
         )
 

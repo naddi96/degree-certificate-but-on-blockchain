@@ -13,12 +13,13 @@ class CaricaCertificato extends React.Component{
           certificato_inesistenze:true,
           certificato:"",
           contract:null,
+          loading:true,
         };
       }
 
 
     async componentWillReceiveProps(nextProps) {
-        
+        this.setState({loading:true})
         let cert=nextProps.certificato
         let web3=nextProps.web3
         
@@ -26,7 +27,7 @@ class CaricaCertificato extends React.Component{
         await this.setState({certificato:cert})
 
         try{
-
+            
             let is_valid = await this.props.contract.methods.is_valid_certificate(this.state.certificato).call()
             if (!is_valid){
                 throw new Error("Certificato non valido")
@@ -38,6 +39,8 @@ class CaricaCertificato extends React.Component{
         
             let x;
             let dict_commissione={}
+            
+
             for (let i=0;i<commisione.length;i++){
                 let nome_cognome = await this.props.contract.methods.get_nome_cognome(commisione[i]).call()
                 x = await contract.methods.has_signed(commisione[i]).call();
@@ -47,13 +50,14 @@ class CaricaCertificato extends React.Component{
                 dict_commissione[commisione[i]]={signed:x,nome_cognome:nome_cognome}
     
             }
-       
-    
-            await this.setState({certificato_scaricato:results, dict_commissione:dict_commissione,certificato_inesistenze:false})
-                
-            }catch{}
             
-        
+    
+            this.setState({certificato_scaricato:results, dict_commissione:dict_commissione,certificato_inesistenze:false})
+                
+            }catch{
+        this.setState({certificato_scaricato:null, dict_commissione:null,certificato_inesistenze:true})}
+            
+        this.setState({loading:false})
     }
 
 
@@ -63,6 +67,7 @@ class CaricaCertificato extends React.Component{
         let web3=this.props.web3
       
         let abi2=DegreeBlock.abi
+        this.setState({loading:true})
 
         
     
@@ -70,7 +75,7 @@ class CaricaCertificato extends React.Component{
 
 
         try{
-
+            
         let is_valid = await this.props.contract.methods.is_valid_certificate(this.state.certificato).call()
         if (!is_valid){
             throw new Error("Certificato non valido")
@@ -91,14 +96,16 @@ class CaricaCertificato extends React.Component{
             dict_commissione[commisione[i]]={signed:x,nome_cognome:nome_cognome}
 
         }
+        
    
 
-        await this.setState({certificato_scaricato:results, dict_commissione:dict_commissione,certificato_inesistenze:false})
+        this.setState({certificato_scaricato:results, dict_commissione:dict_commissione,certificato_inesistenze:false})
             
-        }catch{}
+        }catch{
+            this.setState({certificato_scaricato:null, dict_commissione:null,certificato_inesistenze:true})}
         
         
-        
+        this.setState({loading:false})
     }
 
 
@@ -186,8 +193,13 @@ class CaricaCertificato extends React.Component{
 
         )
         }
+
+        if (this.state.loading){
+            return( <><br />Caricamento...</>)
+        }
+
         if(this.state.certificato_inesistenze){
-            return( <div>{this.state.certificato}  il certificato non esiste</div>)
+            return( <div> {this.state.certificato} il certificato non esiste </div>)
         }
         return( <div>{this.state.certificato}</div>)
        

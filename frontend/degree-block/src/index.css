@@ -1,5 +1,6 @@
 .modal {
     position: fixed;
+    
     top: 0;
     left: 0;
     width:100%;
@@ -9,9 +10,10 @@
   
   .modal-main {
     position:fixed;
+    overflow-y: scroll;
     background: white;
-    width: 80%;
-    height: auto;
+    width: 70%;
+    height: 80%;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
